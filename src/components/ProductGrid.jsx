@@ -31,18 +31,20 @@ import React, { useRef, useState } from 'react';
 import { Box, IconButton } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ProductCard from '../components/ProductCard';
+import ProductCard from './ProductCard';
 
-const products = [
-  { title: 'Product 1', image: 'pd1.jpg' },
-  { title: 'Product 2', image: 'pd2.jpg' },
-  { title: 'Product 3', image: 'pd3.jpg' },
-  { title: 'Product 4', image: 'pd4.jpg' },
-  { title: 'Product 5', image: 'pd5.jpg' },
-  { title: 'Product 6', image: 'pd6.jpg' },
-];
+// const products = [
+//   { title: 'Product 1', image: 'pd1.jpg' },
+//   { title: 'Product 2', image: 'pd2.jpg' },
+//   { title: 'Product 3', image: 'pd3.jpg' },
+//   { title: 'Product 4', image: 'pd4.jpg' },
+//   { title: 'Product 5', image: 'pd5.jpg' },
+//   { title: 'Product 6', image: 'pd6.jpg' },
+// ];
 
-const ProductGrid = () => {
+
+
+const ProductGrid = ({ products, cardProps = {}}) => { 
   const scrollRef = useRef(null);
   const [showArrows, setShowArrows] = useState(false);
 
@@ -90,7 +92,7 @@ const ProductGrid = () => {
         }}
     >
         {products.map((product, index) => (
-          <ProductCard key={index} title={product.title} image={product.image} />
+          <ProductCard key={index} title={product.title} image={product.image} {...cardProps} />
         ))}
       </Box>
        {showArrows && (
